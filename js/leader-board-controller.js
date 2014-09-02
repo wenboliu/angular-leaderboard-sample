@@ -2,15 +2,14 @@ angular.module("leaderBoardApp", [])
     .controller("LeaderBoardController", function ($scope, $http, $interval) {
         refresh();
         $interval(function () {
-            $scope.dataLoaded = false;
+            $scope.dataLoaded = true;
             refresh();
         }, 3000);
-
         function refresh() {
             $scope.showListClassName = "row";
             $scope.errorMessage = "";
             $http.get("/api").then(function (response) {
-                    $scope.dataLoaded = true;
+                    $scope.dataLoaded = false;
 
                     $scope.items = response.data;
                 },
@@ -20,5 +19,4 @@ angular.module("leaderBoardApp", [])
                     $scope.showListClassName = "row show-list-change";
                 });
         }
-
     });

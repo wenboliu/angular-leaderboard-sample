@@ -1,16 +1,11 @@
 var connect = require('connect');
 var http = require('http');
 var app = connect();
-app.use('/public', connect.static("../angular-leaderboard-sample"));
-app.use(function (request, response, next) { //root dir
+app.use('/', connect.static("."));
+app.use(function (request, response, next) {
     if ('/api' != request.url) return next();
-    http.get({
-//        host: '10.18.0.254',
-//        port: 3128,
-        path: 'http://material-code.appspot.com/test/api'
-    }, function (res) {
+    http.get('http://material-code.appspot.com/test/api', function (res) {
         res.on("data", function (chunk) {
-	    console.log(chunk);
             response.end(chunk)
         });
     }).on('error', function (e) {
@@ -20,7 +15,8 @@ app.use(function (request, response, next) { //root dir
 
 });
 
-var port = 5000;
+var port = process.env.PORT || 5000;
+
 connect.createServer(
     app
 ).listen(port);
