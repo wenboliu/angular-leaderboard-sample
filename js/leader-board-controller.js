@@ -4,7 +4,7 @@ angular.module("leaderBoardApp", [])
         $interval(function () {
             $scope.dataLoaded = true;
             refresh();
-        }, 3000);
+        }, 30000);
         function refresh() {
             $scope.showListClassName = "row";
             $scope.errorMessage = "";
