@@ -2,9 +2,9 @@
     "name": "leaderboard",
     "version": "0.0.0",
     "description": "sample leader board",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
-        "start": "node index.js"
+        "start": "node server.js"
     },
     "author": "",
     "license": "ISC",
