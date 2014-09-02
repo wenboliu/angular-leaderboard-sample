@@ -3,13 +3,16 @@ angular.module("leaderBoardApp", [])
     .controller("LeaderBoardController", function ($scope, $http, $interval) {
 	refresh();    
         $interval(function(){
+          $scope.dataLoaded = false;
 	   refresh();
         }, 3000);
 
 	function refresh() {
           $scope.showListClassName = "row";
 	  $scope.errorMessage = "";
-          $http.get("/api").then(function(response){	
+          $http.get("/api").then(function(response){
+          $scope.dataLoaded = true;
+
 	    $scope.items = response.data;
           }, 
 	  function(){
