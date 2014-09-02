@@ -1,25 +1,24 @@
 angular.module("leaderBoardApp", [])
-
     .controller("LeaderBoardController", function ($scope, $http, $interval) {
-	refresh();    
-        $interval(function(){
-          $scope.dataLoaded = false;
-	   refresh();
+        refresh();
+        $interval(function () {
+            $scope.dataLoaded = false;
+            refresh();
         }, 3000);
 
-	function refresh() {
-          $scope.showListClassName = "row";
-	  $scope.errorMessage = "";
-          $http.get("/api").then(function(response){
-          $scope.dataLoaded = true;
+        function refresh() {
+            $scope.showListClassName = "row";
+            $scope.errorMessage = "";
+            $http.get("/api").then(function (response) {
+                    $scope.dataLoaded = true;
 
-	    $scope.items = response.data;
-          }, 
-	  function(){
-            $scope.errorMessage = "Error occurs when getting data from server!"
-	  }).then(function(){
-            $scope.showListClassName = "row show-list-change";
-	  });
-	}
+                    $scope.items = response.data;
+                },
+                function () {
+                    $scope.errorMessage = "Error occurs when getting data from server!"
+                }).then(function () {
+                    $scope.showListClassName = "row show-list-change";
+                });
+        }
 
     });
