@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" ng-app="appTime">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,25 +36,26 @@
     <div class="container" ng-app="leaderBoardApp">
 
       <div id="firstRow" class="row">
-		  	<img width="50px" height="55px" src="img/t-logo.png">
+		  	<img width="34px" height="40px" src="img/t-logo.png">
 	  </div>
 	  
       <div id="secRow" class="row">
+
 			<div id="time" style="float:right" ng-controller = "countController">
-            	<span ng-show="showDay">Closes in: <span class="days".>{{days}}</span> days,</span><span>{{hours}} : {{mins}} : {{seconds}}</span>
+            	<span ng-show="showDay">Closes in: <span class="big-size">{{days}}</span> days,</span><span class="big-size"> {{hours}} : {{mins}} : {{seconds}}</span>
         	</div>
 			<span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 	  </div>
 
 	  <div id="tablelist" class="row" ng-controller="LeaderBoardController">
-		<table class="table">
+		<table class="table table-box">
 			<thead>
 				<tr class="table-header "><th width="10%" class="text-center">RANK</th><th>NAME</th><th width="20%" class="text-right">TIME<span style="color:rgba(94, 0, 126, 0.35)">(HH:MM:SS)</span></th></tr>
 			</thead>
 			<tbody ng-repeat="item in items | limitTo:10 ">
 				<tr><td class="text-center">{{$index + 1}}</td><td>{{item.first_name}} {{item.last_name}}</td><td class="text-right">{{item.time}}</td></tr>
             </tbody>
-		</table>  
+		</table>
 	  </div>
       <!-- FOOTER -->
       <footer>
@@ -73,24 +74,7 @@
     <script src="js/angular.min.js"></script>
     <script src="js/angular-resource.min.js"></script>
 
-    <script type="text/javascript">
-        angular.module("leaderBoardApp", [])
-            .controller("LeaderBoardController", function ($scope) {
-                $scope.items = [
-                    {"first_name": "Kelli", "last_name": "Guiney", "time": "01:00:58"},
-                    {"first_name": "Brett", "last_name": "Cooper", "time": "01:05:35"},
-                    {"first_name": "Felicity", "last_name": "White", "time": "01:07:15"},
-                    {"first_name": "Monty", "last_name": "Hamilton", "time": "01:08:05"},
-                    {"first_name": "Sarah", "last_name": "Battwraden", "time": "01:11:03"},
-                    {"first_name": "Bob", "last_name": "Reynolds", "time": "01:11:37"},
-                    {"first_name": "Mike", "last_name": "Baxter", "time": "01:14:14"},
-                    {"first_name": "Terry", "last_name": "Gillespie", "time": "01:14:15"},
-                    {"first_name": "Chris", "last_name": "Ford", "time": "01:22:27"},
-                    {"first_name": "Sunil", "last_name": "Samarasinghe", "time": "01:24:24"},
-                    {"first_name": "Dan", "last_name": "Martin", "time": "01:25:29"}
-                ];
-            });
-    </script>
+    <script type="text/javascript" src="js/leader-board-controller.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
