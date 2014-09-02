@@ -26,8 +26,11 @@
 
     <!-- Custom styles for this template -->
     <link href="css/carousel.css" rel="stylesheet">
-	
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
 	<style>
+	*{
+		font-family: 'Roboto', sans-serif;
+	}
 	body{
 		background-color:blueviolet;
 	}
@@ -40,16 +43,21 @@
 	}
 	#title{
 		font-size:x-large;
+		font-weight: 100;
 	}
 	.table-header{
 		background-color:rgb(252, 252, 252);
 		color:rgba(94, 0, 126, 0.83);
 		opacity:.8;
+		font-size:small;
+		font-weight: 400;
 	}
 	.table-box {
 		color:white;
 		border: 1px solid white;
 	    border-collapse: separate;
+		font-weight: 300;
+		font-size:large;
 	}
 	.table>thead>tr>th{
 		border-bottom-style:none;
@@ -74,7 +82,7 @@
 	  <div id="tablelist" class="row">
 		<table class="table table-box">
 			<thead>
-				<tr class="table-header "><th width="10%" class="text-center">RANK</th><th>NAME</th><th width="15%" class="text-right">TIME(HH:MM:SS)</th></tr>
+				<tr class="table-header "><th width="10%" class="text-center">RANK</th><th>NAME</th><th width="20%" class="text-right">TIME<span style="color:rgba(94, 0, 126, 0.35)">(HH:MM:SS)</span></th></tr>
 			</thead>
 			<tbody>
 				<tr><td class="text-center">1</td><td>cell is row 0, column 1</td><td class="text-right">cell is row 0, column 2</td></tr>
