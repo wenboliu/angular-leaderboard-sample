@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <div class="table-responsive" ng-controller="LeaderBoardController" ng-cloak>
+        <div id="tablelist" class="table-responsive" ng-controller="LeaderBoardController" ng-class="showListClassName" ng-cloak>
             <table class="table table-box">
                 <thead>
                 <tr class="table-header ">
@@ -54,8 +54,8 @@
                     </th>
                 </tr>
                 </thead>
-                <tbody ng-repeat="item in items | limitTo:10 ">
-                <tr>
+                <tbody>
+                <tr ng-repeat="item in items | limitTo:10 ">
                     <td class="text-center">{{$index + 1}}</td>
                     <td class="text-left">{{item.first_name}} {{item.last_name}}</td>
                     <td class="text-right">{{item.time}}</td>
