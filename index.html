@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Telstra  is Australia's leading provider of mobile phones, mobile devices, home phones and broadband internet. Save money by buying online.">
     <meta name="author" content="">
-
-    <script type="text/javascript" src="./angular.js"></script>
-    <script type="text/javascript" src="./js/controllers.js"></script>
     <link rel="icon" href="favicon-blue.ico">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,12 +23,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this page -->
     <link href="css/sample.css" rel="stylesheet">
   </head>
-<!-- NAVBAR
-================================================== -->
-  <body>
+<body>
 <div class="container" id="background-container">
     <div class="container" ng-app="leaderBoardApp">
 
@@ -40,10 +35,10 @@
 	  </div>
 	  
       <div id="secRow" class="row">
+		  	<span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 			<div id="time" style="float:right" class="text-nowrap" ng-controller = "countController">
-            	<span>Closes in: <span ng-show="showDay" class="big-size">{{days}} days, </span></span><span class="big-size"> {{hours}} : {{mins}} : {{seconds}}</span>
+            	<span>Closes in:&nbsp;&nbsp;&nbsp;<span ng-show="showDay" class="big-size">{{days}}</span><span>&nbsp;days, </span></span><span class="big-size"> {{hours}} : {{mins}} : {{seconds}}</span>
         	</div>
-			<span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 	  </div>
 
 	  <div id="tablelist" class="table-responsive" ng-controller="LeaderBoardController">
@@ -65,11 +60,11 @@
 		</table>
 
           <div class="container">
-      <div id="loadingWidget" class="row-fluid ui-corner-all" ng-show="dataLoaded">
-          <div class="loadingContent">
-              <img alt="Loading Content" src="img/ajax-loader.gif" class="center-block"/>
-          </div>
-      </div>
+      		<div id="loadingWidget" class="row-fluid ui-corner-all" ng-show="dataLoaded">
+          	  	<div class="loadingContent">
+              		<img alt="Loading Content" src="img/ajax-loader.gif" class="center-block"/>
+          		</div>
+      	  	</div>
           </div>
 	  </div>
 
@@ -90,7 +85,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-resource.min.js"></script>
-
+    <script type="text/javascript" src="./angular.js"></script>
+    <script type="text/javascript" src="./js/controllers.js"></script>
     <script type="text/javascript" src="js/leader-board-controller.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
