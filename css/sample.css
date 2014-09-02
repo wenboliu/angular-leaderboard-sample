@@ -46,3 +46,9 @@
 .table>thead>tr>th{
 	border-bottom-style:none;
 }
+
+#loadingWidget {
+    height: 0;
+    bottom: 260px;
+    position: relative;
+}
