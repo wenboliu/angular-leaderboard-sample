@@ -31,8 +31,8 @@
   </head>
 <!-- NAVBAR
 ================================================== -->
-  <body background="img/mesh-for-web.png">
-   
+  <body>
+<div class="container" id="background-container">
     <div class="container" ng-app="leaderBoardApp">
 
       <div id="firstRow" class="row">
@@ -41,7 +41,7 @@
 	  
       <div id="secRow" class="row">
 			<div id="time" style="float:right" ng-controller = "countController">
-            	<span ng-show="showDay">Closes in: <span style="font-size:x-large;">{{days}}</span> days,</span><span>{{hours}} : {{mins}} : {{seconds}}</span>
+            	<span ng-show="showDay">Closes in: <span class="days".>{{days}}</span> days,</span><span>{{hours}} : {{mins}} : {{seconds}}</span>
         	</div>
 			<span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 	  </div>
@@ -64,13 +64,12 @@
 
     </div><!-- /.container -->
 
-
+</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-resource.min.js"></script>
 
