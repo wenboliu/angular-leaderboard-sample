@@ -41,13 +41,18 @@
 	#title{
 		font-size:x-large;
 	}
-	#tablelist{
-		color:white;
-	}
 	.table-header{
 		background-color:rgb(252, 252, 252);
 		color:rgba(94, 0, 126, 0.83);
 		opacity:.8;
+	}
+	.table-box {
+		color:white;
+		border: 1px solid white;
+	    border-collapse: separate;
+	}
+	.table>thead>tr>th{
+		border-bottom-style:none;
 	}
 	</style>
   </head>
@@ -67,7 +72,7 @@
 	  </div>
 	  
 	  <div id="tablelist" class="row">
-		<table class="table">
+		<table class="table table-box">
 			<thead>
 				<tr class="table-header "><th width="10%" class="text-center">RANK</th><th>NAME</th><th width="15%" class="text-right">TIME(HH:MM:SS)</th></tr>
 			</thead>
@@ -99,7 +104,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
