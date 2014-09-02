@@ -1,12 +1,15 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="appTime">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Telstra  is Australia's leading provider of mobile phones, mobile devices, home phones and broadband internet. Save money by buying online.">
     <meta name="author" content="">
+
+    <script type="text/javascript" src="./angular.js"></script>
+    <script type="text/javascript" src="./js/controllers.js"></script>
     <link rel="icon" href="favicon-blue.ico">
 
     <title>Welcome App Leaderboard</title>
@@ -68,7 +71,7 @@
 ================================================== -->
   <body background="img/mesh-for-web.png">
    
-    <div class="container">
+    <div class="container" ng-app="leaderBoardApp">
 
       <div id="firstRow" class="row">
 		  	<img width="50px" height="55px" src="img/t-logo.png">
@@ -76,26 +79,19 @@
 	  
       <div id="secRow" class="row">
 		  	<span id="title">Welcome App Leaderboard</span>
-			<span id="time" class="col-sm-offset-7"> Closes in 6 days,06:00:23</span>
+			<div id="time" class="col-sm-offset-7" ng-controller = "countController"> 
+            	<span ng-show="showDay">{{days}} day, </span><span>{{hours}} : {{mins}} : {{seconds}}</span> <br>
+        	<div>
 	  </div>
-	  
-	  <div id="tablelist" class="row">
-		<table class="table table-box">
+
+	  <div id="tablelist" class="row" ng-controller="LeaderBoardController">
+		<table class="table">
 			<thead>
 				<tr class="table-header "><th width="10%" class="text-center">RANK</th><th>NAME</th><th width="20%" class="text-right">TIME<span style="color:rgba(94, 0, 126, 0.35)">(HH:MM:SS)</span></th></tr>
 			</thead>
-			<tbody>
-				<tr><td class="text-center">1</td><td>cell is row 0, column 1</td><td class="text-right">cell is row 0, column 2</td></tr>
-				<tr><td class="text-center">2</td><td>cell is row 1, column 1</td><td class="text-right">cell is row 1, column 2</td></tr>
-				<tr><td class="text-center">3</td><td>cell is row 2, column 1</td><td class="text-right">cell is row 2, column 2</td></tr>
-				<tr><td class="text-center">4</td><td>cell is row 3, column 1</td><td class="text-right">cell is row 3, column 2</td></tr>
-				<tr><td class="text-center">5</td><td>cell is row 4, column 1</td><td class="text-right">cell is row 4, column 2</td></tr>
-				<tr><td class="text-center">6</td><td>cell is row 5, column 1</td><td class="text-right">cell is row 5, column 2</td></tr>
-				<tr><td class="text-center">7</td><td>cell is row 6, column 1</td><td class="text-right">cell is row 6, column 2</td></tr>
-				<tr><td class="text-center">8</td><td>cell is row 7, column 1</td><td class="text-right">cell is row 7, column 2</td></tr>
-				<tr><td class="text-center">9</td><td>cell is row 8, column 1</td><td class="text-right">cell is row 8, column 2</td></tr>
-				<tr><td class="text-center">10</td><td>cell is row 9, column 1</td><td class="text-right">cell is row 9, column 2</td></tr>
-			</tbody>
+			<tbody ng-repeat="item in items | limitTo:10 ">
+				<tr><td class="text-center">{{$index + 1}}</td><td>{{item.first_name}} {{item.last_name}}</td><td class="text-right">{{item.time}}</td></tr>
+            </tbody>
 		</table>  
 	  </div>
       <!-- FOOTER -->
@@ -112,6 +108,28 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+
+    <script type="text/javascript">
+        angular.module("leaderBoardApp", [])
+            .controller("LeaderBoardController", function ($scope) {
+                $scope.items = [
+                    {"first_name": "Kelli", "last_name": "Guiney", "time": "01:00:58"},
+                    {"first_name": "Brett", "last_name": "Cooper", "time": "01:05:35"},
+                    {"first_name": "Felicity", "last_name": "White", "time": "01:07:15"},
+                    {"first_name": "Monty", "last_name": "Hamilton", "time": "01:08:05"},
+                    {"first_name": "Sarah", "last_name": "Battwraden", "time": "01:11:03"},
+                    {"first_name": "Bob", "last_name": "Reynolds", "time": "01:11:37"},
+                    {"first_name": "Mike", "last_name": "Baxter", "time": "01:14:14"},
+                    {"first_name": "Terry", "last_name": "Gillespie", "time": "01:14:15"},
+                    {"first_name": "Chris", "last_name": "Ford", "time": "01:22:27"},
+                    {"first_name": "Sunil", "last_name": "Samarasinghe", "time": "01:24:24"},
+                    {"first_name": "Dan", "last_name": "Martin", "time": "01:25:29"}
+                ];
+            });
+    </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
