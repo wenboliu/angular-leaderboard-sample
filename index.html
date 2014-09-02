@@ -31,24 +31,24 @@
   </head>
 <!-- NAVBAR
 ================================================== -->
-  <body background="img/mesh-for-web.png">
-   
+  <body>
+<div class="container" id="background-container">
     <div class="container" ng-app="leaderBoardApp">
 
       <div id="firstRow" class="row">
-		  	<img width="50px" height="55px" src="img/t-logo.png">
+		  	<img width="34px" height="40px" src="img/t-logo.png">
 	  </div>
 	  
       <div id="secRow" class="row">
 
 			<div id="time" style="float:right" ng-controller = "countController">
-            	<span>Closes in: <span style="font-size:x-large;"  ng-show="showDay">{{days}} days, </span></span><span>{{hours}} : {{mins}} : {{seconds}}</span>
+            	<span>Closes in: <span ng-show="showDay" class="big-size">{{days}} days, </span></span><span class="big-size"> {{hours}} : {{mins}} : {{seconds}}</span>
         	</div>
 			<span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 	  </div>
 
 	  <div id="tablelist" class="row" ng-controller="LeaderBoardController">
-		<table class="table">
+		<table class="table table-box">
 			<thead>
 				<tr class="table-header "><th width="10%" class="text-center">RANK</th><th>NAME</th><th width="20%" class="text-right">TIME<span style="color:rgba(94, 0, 126, 0.35)">(HH:MM:SS)</span></th></tr>
 			</thead>
@@ -65,7 +65,7 @@
 
     </div><!-- /.container -->
 
-
+</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

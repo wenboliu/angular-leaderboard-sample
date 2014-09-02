@@ -1,8 +1,18 @@
 *{
 	font-family: 'Roboto', sans-serif;
 }
-body{
-	background-color:blueviolet;
+#background-container{
+	width:100vw;
+	height:100vh;
+	background: #721D93;
+    background-image: url("../img/mesh-for-web.png");	
+    background-image: url("../img/mesh-for-web.png"), -webkit-gradient(linear, left top, left bottom, color-stop(0, #721D93), color-stop(1, #17A7F4));
+    background-image: url("../img/mesh-for-web.png"), -o-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
+    background-image: url("../img/mesh-for-web.png"), -moz-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
+    background-image: url("../img/mesh-for-web.png"), -webkit-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
+    background-image: url("../img/mesh-for-web.png"), -ms-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
+    background-image: url("../img/mesh-for-web.png"), linear-gradient(to bottom, #721D93 0%, #17A7F4 100%);
+	background-repeat-y:no-repeat;
 }
 #firstRow{
 	margin-top:15px;
@@ -14,6 +24,10 @@ body{
 #title{
 	font-size:x-large;
 	font-weight: 100;
+}
+.big-size{
+	font-weight: 100;
+	font-size:x-large;
 }
 .table-header{
 	background-color:rgb(252, 252, 252);
