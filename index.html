@@ -11,11 +11,10 @@
     <script type="text/javascript" src="./angular.js"></script>
     <script type="text/javascript" src="./js/controllers.js"></script>
     <link rel="icon" href="favicon-blue.ico">
-
-    <title>Welcome App Leaderboard</title>
-
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <title>Welcome App Leaderboard</title>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -28,44 +27,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
-	<style>
-	*{
-		font-family: 'Roboto', sans-serif;
-	}
-	body{
-		background-color:blueviolet;
-	}
-	#firstRow{
-		margin-top:15px;
-	}
-	#secRow{
-		padding:15px 0 15px 0;
-		color:white;
-	}
-	#title{
-		font-size:x-large;
-		font-weight: 100;
-	}
-	.table-header{
-		background-color:rgb(252, 252, 252);
-		color:rgba(94, 0, 126, 0.83);
-		opacity:.8;
-		font-size:small;
-		font-weight: 400;
-	}
-	.table-box {
-		color:white;
-		border: 1px solid white;
-	    border-collapse: separate;
-		font-weight: 300;
-		font-size:large;
-	}
-	.table>thead>tr>th{
-		border-bottom-style:none;
-	}
-	</style>
+    <link href="css/sample.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -78,10 +40,10 @@
 	  </div>
 	  
       <div id="secRow" class="row">
-		  	<span id="title">Welcome App Leaderboard</span>
-			<div id="time" class="col-sm-offset-7" ng-controller = "countController"> 
-            	<span ng-show="showDay">{{days}} day, </span><span>{{hours}} : {{mins}} : {{seconds}}</span> <br>
-        	<div>
+			<div id="time" style="float:right" ng-controller = "countController">
+            	<span ng-show="showDay">Closes in: <span style="font-size:x-large;">{{days}}</span> days,</span><span>{{hours}} : {{mins}} : {{seconds}}</span>
+        	</div>
+			<span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 	  </div>
 
 	  <div id="tablelist" class="row" ng-controller="LeaderBoardController">

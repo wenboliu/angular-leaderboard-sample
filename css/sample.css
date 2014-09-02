@@ -1,0 +1,34 @@
+*{
+	font-family: 'Roboto', sans-serif;
+}
+body{
+	background-color:blueviolet;
+}
+#firstRow{
+	margin-top:15px;
+}
+#secRow{
+	padding:15px 0 15px 0;
+	color:white;
+}
+#title{
+	font-size:x-large;
+	font-weight: 100;
+}
+.table-header{
+	background-color:rgb(252, 252, 252);
+	color:rgba(94, 0, 126, 0.83);
+	opacity:.8;
+	font-size:small;
+	font-weight: 400;
+}
+.table-box {
+	color:white;
+	border: 1px solid white;
+    border-collapse: separate;
+	font-weight: 300;
+	font-size:large;
+}
+.table>thead>tr>th{
+	border-bottom-style:none;
+}
