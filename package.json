@@ -1,14 +1,21 @@
 {
-  "name": "leaderboard",
-  "version": "0.0.0",
-  "description": "sample leader board",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "connect": "^2.25.7"
-  }
+    "name": "leaderboard",
+    "version": "0.0.0",
+    "description": "sample leader board",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "engines": {
+        "node": "0.10.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@heroku.com:leaderboard-angular-sample.git"
+    },
+    "devDependencies": {
+        "connect": "^2.25.7"
+    }
 }
