@@ -25,6 +25,9 @@
 	font-size:x-large;
 	font-weight: 100;
 }
+#tablelist{
+	border:1px solid #ddd;
+}
 .big-size{
 	font-weight: 100;
 	font-size:x-large;
