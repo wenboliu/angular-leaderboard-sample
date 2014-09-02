@@ -1,12 +1,15 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="appTime">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Telstra  is Australia's leading provider of mobile phones, mobile devices, home phones and broadband internet. Save money by buying online.">
     <meta name="author" content="">
+
+    <script type="text/javascript" src="./angular.js"></script>
+    <script type="text/javascript" src="./js/controllers.js"></script>
     <link rel="icon" href="favicon-blue.ico">
 
     <title>Welcome App Leaderboard</title>
@@ -68,7 +71,9 @@
 	  
       <div id="secRow" class="row">
 		  	<span id="title">Welcome App Leaderboard</span>
-			<span id="time" class="col-sm-offset-7"> Closes in 6 days,06:00:23</span>
+			<div id="time" class="col-sm-offset-7" ng-controller = "countController"> 
+            	<span ng-show="showDay">{{days}} day, </span><span>{{hours}} : {{mins}} : {{seconds}}</span> <br>
+        	<div>
 	  </div>
 
 	  <div id="tablelist" class="row" ng-controller="LeaderBoardController">
