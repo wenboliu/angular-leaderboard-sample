@@ -16,7 +16,8 @@ app.use(function (request, response, next) { //root dir
 
 });
 
-var port = 5000;
+var port = process.env.PORT || 5000;
+
 connect.createServer(
     app
 ).listen(port);
