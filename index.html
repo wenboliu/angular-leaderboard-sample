@@ -46,13 +46,21 @@
 			<span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 	  </div>
 
-	  <div id="tablelist" class="row" ng-controller="LeaderBoardController">
+	  <div id="tablelist" class="table-responsive" ng-controller="LeaderBoardController">
 		<table class="table table-box">
 			<thead>
-				<tr class="table-header "><th width="5%" class="text-center">RANK</th><th width="60%">NAME</th><th width="20%" class="text-right">TIME<span style="color:rgba(94, 0, 126, 0.35)">(HH:MM:SS)</span></th></tr>
+				<tr class="table-header ">
+					<th width="15%" class="text-center">RANK</th>
+					<th>NAME</th>
+					<th width="20%" class="text-right">TIME<span style="color:rgba(94, 0, 126, 0.35)">(HH:MM:SS)</span></th>
+				</tr>
 			</thead>
 			<tbody ng-repeat="item in items | limitTo:10 ">
-				<tr><td class="text-center">{{$index + 1}}</td><td>{{item.first_name}} {{item.last_name}}</td><td class="text-right">{{item.time}}</td></tr>
+				<tr>
+					<td class="text-center">{{$index + 1}}</td>
+					<td class="text-left">{{item.first_name}} {{item.last_name}}</td>
+					<td class="text-right">{{item.time}}</td>
+				</tr>
             </tbody>
 		</table>
 	  </div>
