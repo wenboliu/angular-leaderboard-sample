@@ -7,9 +7,13 @@ app.use(function (request, response, next) { //root dir
     http.get({
         path: 'http://material-code.appspot.com/test/api'
     }, function (res) {
+	    
         res.on("data", function (chunk) {
             response.end(chunk)
         });
+	if(res.statusCode == 500) {
+	    response.writeHead(500, '', {'content-type' : 'text/plain'});
+	}
     });
 
 });
