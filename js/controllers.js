@@ -10,7 +10,7 @@ function countController($scope, $interval){
     var remiander;
     if (countDown > 0){
         $interval(function(){
-        	countDown--
+        	countDown--;
         	$scope.days = Math.floor(countDown / 86400);
             remiander = countDown % 86400;
 
