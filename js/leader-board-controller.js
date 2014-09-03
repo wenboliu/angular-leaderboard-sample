@@ -16,7 +16,7 @@ angular.module("leaderBoardApp", [])
                 function () {
                     $scope.errorMessage = "Error occurs when getting data from server!"
                 }).then(function () {
-                    $scope.showListClassName = "row show-list-change";
+                    $scope.showListClassName = "show-list-change";
                 });
         }
     });
