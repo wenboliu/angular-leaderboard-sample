@@ -11,7 +11,6 @@ angular.module("leaderBoardApp", [])
             $scope.errorMessage = "";
             $http.get("/api").then(function (response) {
                     $scope.dataLoaded = false;
-
                     $scope.items = response.data;
                 },
                 function () {
