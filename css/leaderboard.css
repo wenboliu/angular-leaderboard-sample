@@ -1,12 +1,16 @@
 *{
 	font-family: 'Roboto', sans-serif;
 }
-
+html, body {
+    height: 100%; /* IMPORTANT!!! stretches viewport to 100% */
+}
 #background-container{
-	width:100%;
-	height:100%;
-	min-height:200px;
+	min-height: 100%; /* min. height for modern browser */
+    height:auto !important; /* important rule for modern Browser */
+    height:100%; /* min. height for IE */
+    overflow: hidden !important; /* FF scroll-bar */
 	background: #721D93;
+	min-width:320px;
     background-image: url("../img/mesh-for-web.png");	
     background-image: url("../img/mesh-for-web.png"), -webkit-gradient(linear, left top, left bottom, color-stop(0, #721D93), color-stop(1, #17A7F4));
     background-image: url("../img/mesh-for-web.png"), -o-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
@@ -14,7 +18,7 @@
     background-image: url("../img/mesh-for-web.png"), -webkit-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
     background-image: url("../img/mesh-for-web.png"), -ms-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
     background-image: url("../img/mesh-for-web.png"), linear-gradient(to bottom, #721D93 0%, #17A7F4 100%);
-	background-repeat-y:no-repeat;
+	background-repeat:repeat-x;
 }
 #firstRow{
 	margin-top:15px;
