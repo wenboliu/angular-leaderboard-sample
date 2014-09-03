@@ -38,7 +38,8 @@
         <div id="secRow" class="row">
             <span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 
-            <div id="time" style="float:right" class="text-nowrap" ng-controller="countController">
+
+            <div id="time" style="float:right" ng-controller="countController" ng-cloak>
                 <span>Closes in:&nbsp;&nbsp;&nbsp;<span ng-show="showDay" class="big-size">{{days}}</span><span>&nbsp;days, </span></span><span
                     class="big-size"> {{hours}} : {{mins}} : {{seconds}}</span>
             </div>
@@ -58,7 +59,7 @@
                 <tr ng-repeat="item in items | limitTo:10 ">
                     <td class="text-center">{{$index + 1}}</td>
                     <td class="text-left text-ellipsis">{{item.first_name}} {{item.last_name}}</td>
-                    <td class="text-center" style="min-width:100px">{{item.time}}</td>
+                    <td class="text-center text-nowrap" style="min-width:100px">{{item.time}}</td>
                 </tr>
                 <tr>
                     <td colspan="3" ng-show="errorMessage">{{errorMessage}}</td>
@@ -92,6 +93,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/ie-compatiable.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/angular-resource.min.js"></script>
 <script type="text/javascript" src="./angular.js"></script>
