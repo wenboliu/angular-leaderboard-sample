@@ -18,7 +18,7 @@ html, body {
     background-image: url("../img/mesh-for-web.png"), -webkit-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
     background-image: url("../img/mesh-for-web.png"), -ms-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
     background-image: url("../img/mesh-for-web.png"), linear-gradient(to bottom, #721D93 0%, #17A7F4 100%);
-	background-repeat-y:no-repeat;
+	background-repeat:repeat-x;
 }
 #firstRow{
 	margin-top:15px;
