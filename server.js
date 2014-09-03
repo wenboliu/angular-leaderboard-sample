@@ -4,12 +4,10 @@ var app = connect();
 app.use('/', connect.static("."));
 app.use(function (request, response, next) {
     if ('/api' != request.url) return next();
-    http.get({//host: '10.18.0.254',
-              //port: 3128,
-              path: 'http://material-code.appspot.com/test/api'}, function (res) {
-              res.on("data", function (chunk) {
-                response.end(chunk)
-              });
+    http.get('http://material-code.appspot.com/test/api', function (res) {
+        res.on("data", function (chunk) {
+            response.end(chunk)
+        });
     }).on('error', function (e) {
         console.log("Got error: " + e.message);
         response.writeHead(500, '', {'content-type': 'text/plain'});
