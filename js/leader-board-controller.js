@@ -1,7 +1,7 @@
 angular.module("leaderBoardApp", [])
     .controller("LeaderBoardController", function ($scope, $http, $interval) {
+        angular.element('#items').show();
         $scope.showListClassName = "hidden";
-        $scope.dataPrepared = "false";
         refresh();
         $interval(function () {
             $scope.dataLoaded = true;

@@ -2,8 +2,8 @@
 var app = angular.module('appTime',[]);
 
 function countController($scope, $interval){
+    angular.element('#time').show();
 	$scope.showDay = false;
-    $scope.dataPrepared = "false";
     var currentDate = new Date();
     var timeStop = new Date(2014, 8, 8, 15, 30);
     var countDown = Math.floor((timeStop - currentDate)/1000);
