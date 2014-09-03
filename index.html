@@ -29,7 +29,7 @@
             <span id="title" class="text-nowrap">Welcome App Leaderboard</span>
 
 
-                <div id="time" style="float:right" ng-controller="countController" ng-hide="dataPrepared">
+                <div id="time" style="float:right" ng-controller="countController">
                 <span>Closes in:&nbsp;&nbsp;&nbsp;<span ng-show="showDay" class="big-size">{{days}}</span><span>&nbsp;days, </span></span><span
                     class="big-size"> {{hours}} : {{mins}} : {{seconds}}</span>
             </div>
@@ -45,7 +45,7 @@
                     </th>
                 </tr>
                 </thead>
-                <tbody ng-hide="dataPrepared">
+                <tbody>
                 <tr ng-repeat="item in items | limitTo:10 ">
                     <td class="text-center">{{$index + 1}}</td>
                     <td class="text-left text-ellipsis">{{item.first_name}} {{item.last_name}}</td>
