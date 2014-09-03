@@ -13,8 +13,8 @@ html, body {
     min-width:320px;
     background-repeat:repeat-x;
     background: #721D93 url("../img/mesh-for-web.png");
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#721D9300', endColorstr='#17A7F4FF') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/mesh-for-web.png');
-    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#721D9300', endColorstr='#00000000') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/mesh-for-web.png')";
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00721D93', endColorstr='#FF17A7F4') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/mesh-for-web.png');
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#00721D93', endColorstr='#FF17A7F4') progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/mesh-for-web.png')";
 }
 
 .background-container{
@@ -24,6 +24,13 @@ html, body {
     overflow: hidden !important; /* FF scroll-bar */
     background: #721D93;
     min-width:320px;
+	background-image: url("../img/mesh-for-web.png");  
+	background-image: url("../img/mesh-for-web.png"), -webkit-gradient(linear, left top, left bottom, color-stop(0, #721D93), color-stop(1, #17A7F4));
+	background-image: url("../img/mesh-for-web.png"), -o-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
+	background-image: url("../img/mesh-for-web.png"), -moz-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
+	background-image: url("../img/mesh-for-web.png"), -webkit-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
+	background-image: url("../img/mesh-for-web.png"), -ms-linear-gradient(bottom, #721D93 0%, #17A7F4 100%);
+	background-image: url("../img/mesh-for-web.png"), linear-gradient(to bottom, #721D93 0%, #17A7F4 100%);
     background-image: url("../img/mesh-for-web.png"), linear-gradient(to bottom, #721D93 0%, #17A7F4 100%);
     background-repeat:repeat-x;
 }
