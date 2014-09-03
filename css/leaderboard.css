@@ -4,7 +4,7 @@
 #background-container{
 	width:100%;
 	height:100%;
-	minheight:200px;
+	min-height:200px;
 	background: #721D93;
     background-image: url("../img/mesh-for-web.png");	
     background-image: url("../img/mesh-for-web.png"), -webkit-gradient(linear, left top, left bottom, color-stop(0, #721D93), color-stop(1, #17A7F4));
@@ -69,3 +69,12 @@
     -o-transform: rotateX(360deg);
     transform: rotateX(360deg);
 }       
+
+.table {
+  table-layout:fixed;
+}
+.table .text-ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

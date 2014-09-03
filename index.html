@@ -48,17 +48,17 @@
             <table class="table table-box">
                 <thead>
                 <tr class="table-header ">
-                    <th width="15%" class="text-center">RANK</th>
+                    <th width="50px" class="text-center">RANK</th>
                     <th>NAME</th>
-                    <th width="20%" class="text-right">TIME<span style="color:rgba(94, 0, 126, 0.4)">(HH:MM:SS)</span>
+                    <th width="120px" class="text-center">TIME<span style="color:rgba(94, 0, 126, 0.4)">(HH:MM:SS)</span>
                     </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in items | limitTo:10 ">
                     <td class="text-center">{{$index + 1}}</td>
-                    <td class="text-left">{{item.first_name}} {{item.last_name}}</td>
-                    <td class="text-right">{{item.time}}</td>
+                    <td class="text-left text-ellipsis">{{item.first_name}} {{item.last_name}}</td>
+                    <td class="text-center" style="min-width:100px">{{item.time}}</td>
                 </tr>
                 <tr>
                     <td colspan="3" ng-show="errorMessage">{{errorMessage}}</td>
