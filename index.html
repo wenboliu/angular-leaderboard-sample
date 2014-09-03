@@ -36,15 +36,15 @@
         </div>
 
         <div id="secRow" class="row">
-            <span id="title" class="text-nowrap">Welcome App Leaderboard</span>
+            <span id="title">Welcome App Leaderboard</span>
 
-            <div id="time" style="float:right" class="text-nowrap" ng-controller="countController">
+            <div id="time" style="float:right" ng-controller="countController">
                 <span>Closes in:&nbsp;&nbsp;&nbsp;<span ng-show="showDay" class="big-size">{{days}}</span><span>&nbsp;days, </span></span><span
                     class="big-size"> {{hours}} : {{mins}} : {{seconds}}</span>
             </div>
         </div>
 
-        <div id="tablelist" class="table-responsive" ng-controller="LeaderBoardController" ng-class="showListClassName" ng-cloak>
+        <div id="tablelist" ng-controller="LeaderBoardController" ng-class="showListClassName" ng-cloak>
             <table class="table table-box">
                 <thead>
                 <tr class="table-header ">

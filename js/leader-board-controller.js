@@ -6,7 +6,7 @@ angular.module("leaderBoardApp", [])
             refresh();
         }, 30000);
         function refresh() {
-            $scope.showListClassName = "row";
+            $scope.showListClassName = "table-responsive";
             $scope.errorMessage = "";
             $http.get("/api").then(function (response) {
                     $scope.dataLoaded = false;
@@ -16,7 +16,7 @@ angular.module("leaderBoardApp", [])
                 function () {
                     $scope.errorMessage = "Error occurs when getting data from server!"
                 }).then(function () {
-                    $scope.showListClassName = "show-list-change";
+                    $scope.showListClassName = "table-responsive show-list-change";
                 });
         }
     });
