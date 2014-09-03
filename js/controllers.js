@@ -6,7 +6,7 @@ function countController($scope, $interval){
     var currentDate = new Date();
     var timeStop = new Date(2014, 8, 8, 15, 30);
     $scope.countDown = Math.floor((timeStop - currentDate)/1000);
-    
+
     var remiander;
     if ($scope.countDown > 0){
         $interval(function(){
@@ -21,18 +21,13 @@ function countController($scope, $interval){
             else{
                 $scope.hours = Math.floor($scope.countDown / 3600)
             }
-            if($scope.hours < 10){
-                $scope.hours = '0'+$scope.hours;
-            }
+
+            $scope.hours = ("0" + $scope.hours).slice(-2);
         	remiander = remiander % 3600;
         	$scope.mins = Math.floor(remiander / 60);
-            if($scope.mins < 10){
-                $scope.mins = '0'+$scope.mins;
-            }
+            $scope.mins = ("0" + $scope.mins).slice(-2);
         	$scope.seconds = remiander % 60;
-            if($scope.seconds < 10){
-                $scope.seconds = '0'+$scope.seconds;
-            }
+            $scope.seconds = ("0" + $scope.seconds).slice(-2);
 
         },1000,0);  
     }
