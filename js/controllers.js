@@ -11,7 +11,7 @@ function countController($scope, $interval){
     var remainder;
     if (countDown > 0){
         $interval(function(){
-        	countDown--
+        	countDown--;
         	$scope.days = Math.floor(countDown / 86400);
             remainder = countDown % 86400;
 
