@@ -3,9 +3,9 @@ var app = angular.module('appTime',[]);
 
 function countController($scope, $interval){
 	$scope.showDay = false;
-    $scope.currentDate = new Date();
-    $scope.time_stop = new Date(2014, 9, 8, 15, 30);
-	$scope.countDown = ($scope.time_stop.getDate() - $scope.currentDate.getDate())*86400 + ($scope.time_stop.getHours() - $scope.currentDate.getHours())*3600 + ($scope.time_stop.getMinutes() - $scope.currentDate.getMinutes())*60 + ($scope.time_stop.getSeconds() - $scope.currentDate.getSeconds());
+	$scope.countDown = Math.floor((time_stop - currentDate)/1000);
+    var currentDate = new Date();
+    var time_stop = new Date(2014, 8, 8, 15, 30);
     var remiander;
     if ($scope.countDown > 0){
         $interval(function(){
