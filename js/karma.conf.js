@@ -3,7 +3,7 @@ module.exports = function(config) {
         // base path, that will be used to resolve files and exclude
         basePath: '.',
         // frameworks to use
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine', 'requirejs'],
         // list of files / patterns to load in the browser
         files: [
             'lib/requirejs/*.js',
@@ -11,10 +11,12 @@ module.exports = function(config) {
             'lib/jquery/*.js',
 	    'lib/*/*.js',
             'config.js',
-            '*.js'
+            '*.js',
+	    'test.config.js'
         ],
         // list of files to exclude
         exclude: [
+	   'config.js'
         ],
         // test results reporter to use
         reporters: ['progress'],
