@@ -1,21 +1,26 @@
 {
-    "name": "leaderboard",
-    "version": "0.0.0",
-    "description": "sample leader board",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "engines": {
-        "node": "0.10.x"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@heroku.com:leaderboard-angular-sample.git"
-    },
-    "devDependencies": {
-        "connect": "^2.25.7"
-    }
+  "name": "leaderboard",
+  "version": "0.0.0",
+  "description": "sample leader board",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:leaderboard-angular-sample.git"
+  },
+  "devDependencies": {
+    "connect": "^2.25.7",
+    "grunt": "^0.4.0",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-qunit": "~0.3.0",
+    "grunt-contrib-watch": "~0.5.3"
+  }
 }
