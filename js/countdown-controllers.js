@@ -20,7 +20,7 @@ function countController($scope, $interval){
                 $scope.hours = ("0" +  Math.floor(remiander / 3600)).slice(-2);
         	}
             else{
-                $scope.hours = ("0" + Math.floor($scope.countDown / 3600)).slice(-2);
+                $scope.hours = ("0" + Math.floor(countDown / 3600)).slice(-2);
             }
 
             $scope.hours = ("0" + $scope.hours).slice(-2);
