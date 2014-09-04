@@ -23,12 +23,10 @@
             <img width="34px" height="40px" src="img/t-logo.png">
         </div>
 
-        <div id="secRow" class="row">
+        <div id="secRow" class="row" ng-controller="timerCtrl">
             <span id="title">Welcome App Leaderboard</span>
 
-                <div id="time" style="float:right" ng-controller="countController">
-                <span>Closes in:&nbsp;&nbsp;&nbsp;<span ng-show="showDay" class="big-size">{{days}}</span><span ng-show="showDay">&nbsp;days, </span></span><span
-                    class="big-size"> {{hours}} : {{mins}} : {{seconds}}</span>
+                <div class="timer" style="float:right" timer="timer">
             </div>
         </div>
 
