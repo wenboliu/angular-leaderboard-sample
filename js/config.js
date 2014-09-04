@@ -7,7 +7,8 @@ requirejs.config({
     bootstrap: 'lib/bootstrap/bootstrap',
     'angular-animate': 'lib/angular-animate/angular-animate',
     'angular-resource': 'lib/angular-resource/angular-resource',
-    leaderboard: 'src/leader-board-controllers'
+    leaderboard: 'src/leader-board-controllers',
+    leaderboardtimer: 'src/leader-board-timer'
   },
 
   shim: {
@@ -22,4 +23,4 @@ requirejs.config({
   },
 });
 
-requirejs(['leaderboard']);
+requirejs(['leaderboard', 'leaderboardtimer']);
