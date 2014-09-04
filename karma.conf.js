@@ -1,22 +1,21 @@
 module.exports = function(config) {
     config.set({
         // base path, that will be used to resolve files and exclude
-        basePath: '.',
+        basePath: './js',
         // frameworks to use
         frameworks: ['jasmine', 'requirejs'],
         // list of files / patterns to load in the browser
         files: [
-            'lib/requirejs/*.js',
-            'lib/angular/*.js',
-            'lib/jquery/*.js',
-	    'lib/*/*.js',
-            'config.js',
-            '*.js',
-	    'test.config.js'
+    		'lib/jquery/*.js',
+		'lib/angular/*.js',
+		'lib/**/*.js',
+	      	'background.js',
+	      	'leader-board-controllers.js',
+	    	{pattern: 'specs/*-spec.js', included: false},
+		'specs/test.config.js'
         ],
         // list of files to exclude
         exclude: [
-	   'config.js'
         ],
         // test results reporter to use
         reporters: ['progress'],
