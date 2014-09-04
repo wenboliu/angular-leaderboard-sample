@@ -1,4 +1,4 @@
-define(['angular', 'angular-resource'], function(angular) {
+define('leaderboard', ['angular', 'angular-resource'], function(angular) {
   var leaderBoardApp = angular.module("leaderBoardApp", []);
   leaderBoardApp.controller("LeaderBoardController", function ($scope, $http, $interval) {
         angular.element('#items').show();

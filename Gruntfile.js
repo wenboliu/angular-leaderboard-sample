@@ -28,12 +28,18 @@ module.exports = function(grunt) {
           "css/leaderboard.css": "css/leaderboard.less"
        }
      }
+    },
+    karma: {
+      unit: {
+        configFile: 'js/karma.conf.js'
+      }
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
   grunt.registerTask('default', ['less', 'bower']);

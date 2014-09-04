@@ -1,9 +1,9 @@
 
-define(['jquery'], function($) {
+define('background', ['jquery'], function($) {
   $(function(){
      var backgroudStyle = "background-container";
      if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){ 
-       var ieversion=new Number(RegExp.$1); console.log(ieversion); 
+       var ieversion=new Number(RegExp.$1);
        if(ieversion <= 9) {
           backgroudStyle = "background-container-ie";
        }
