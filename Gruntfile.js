@@ -16,13 +16,26 @@ module.exports = function(grunt) {
           bowerOptions: {}
         }
       }
+    },
+    less: {
+      development: {
+        files: {
+          "css/leaderboard.css": "css/leaderboard.less"
+        }
+      },
+      production: {
+        files: {
+          "css/leaderboard.css": "css/leaderboard.less"
+       }
+     }
     }
   });
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // Default task.
-  grunt.registerTask('default', ['bower']);
+  grunt.registerTask('default', ['less', 'bower']);
 
 };
