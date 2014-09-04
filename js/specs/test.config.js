@@ -12,8 +12,7 @@ requirejs.config({
 	    'angular-animate': 'lib/angular-animate/angular-animate',
 	    'angular-resource': 'lib/angular-resource/angular-resource',
 	    'angular-mocks': 'lib/angular-mocks/angular-mocks',
-	    background: 'background',
-	    leaderboard: 'leader-board-controllers'
+	    leaderboard: 'src/leader-board-controllers',
   },
 
   shim: {

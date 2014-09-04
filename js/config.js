@@ -7,7 +7,7 @@ requirejs.config({
     bootstrap: 'lib/bootstrap/bootstrap',
     'angular-animate': 'lib/angular-animate/angular-animate',
     'angular-resource': 'lib/angular-resource/angular-resource',
-    leaderboard: 'src/leader-board-controllers'
+    leaderboard: 'src/leader-board-controllers',
   },
 
   shim: {

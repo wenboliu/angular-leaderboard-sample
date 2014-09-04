@@ -46,6 +46,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task.
-  grunt.registerTask('default', ['less', 'bower']);
+  grunt.registerTask('default', ['less', 'bower', 'karma:ci']);
 
 };
