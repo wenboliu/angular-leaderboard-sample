@@ -68,6 +68,23 @@
               <exec command="ls" workingdir="app">
                 <runif status="passed" />
               </exec>
+              <exec command="pwd" workingdir="app">
+                <runif status="passed" />
+              </exec>
+              <exec command="git" workingdir="app">
+                <arg>remote</arg>
+                <arg>add</arg>
+                <arg>heroku</arg>
+                <arg>git@heroku.com:leaderboard-angular-sample.git</arg>
+                <runif status="passed" />
+              </exec>
+              <exec command="git" workingdir="app">
+                <arg>push</arg>
+                <arg>-f</arg>
+                <arg>heroku</arg>
+                <arg>master</arg>
+                <runif status="passed" />
+              </exec>
             </tasks>
           </job>
         </jobs>
