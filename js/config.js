@@ -6,7 +6,6 @@ requirejs.config({
     bootstrap: 'lib/bootstrap/bootstrap',
     'angular-animate': 'lib/angular-animate/angular-animate',
     'angular-resource': 'lib/angular-resource/angular-resource',
-    background: 'background',
     leaderboard: 'leader-board-controllers'
   },
   shim: {
@@ -22,7 +21,5 @@ requirejs.config({
 
   ]
 });
-
-requirejs(['background']);
 
 requirejs(['leaderboard']);
