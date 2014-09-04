@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="72">
+  <server artifactsdir="artifacts" commandRepositoryLocation="default" serverId="459f9f84-462d-476b-9bba-10444739d624" />
+  <pipelines group="LeaderBoard">
+    <pipeline name="Build" isLocked="true">
+      <environmentvariables>
+        <variable name="PATH">
+          <value>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</value>
+        </variable>
+      </environmentvariables>
+      <materials>
+        <git url="https://github.com/jiukunz/angular-leaderboard-sample.git" dest="app" materialName="app" />
+      </materials>
+      <stage name="build" cleanWorkingDir="true">
+        <jobs>
+          <job name="initialize">
+            <tasks>
+              <exec command="env" workingdir="app">
+                <runif status="passed" />
+              </exec>
+              <exec command="ls" workingdir="app">
+                <runif status="passed" />
+              </exec>
+              <exec command="./init.sh" workingdir="app">
+                <runif status="passed" />
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact src="app" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="Test" isLocked="true">
+      <materials>
+        <pipeline pipelineName="Build" stageName="build" materialName="app" />
+      </materials>
+      <stage name="Test" cleanWorkingDir="true">
+        <jobs>
+          <job name="acceptance">
+            <tasks>
+              <fetchartifact pipeline="Build" stage="build" job="initialize" srcdir="app">
+                <runif status="passed" />
+              </fetchartifact>
+              <exec command="ls" workingdir="app">
+                <runif status="passed" />
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact src="app" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+    <pipeline name="Deploy" isLocked="true">
+      <materials>
+        <pipeline pipelineName="Test" stageName="Test" />
+      </materials>
+      <stage name="deploy">
+        <jobs>
+          <job name="heroku">
+            <tasks>
+              <fetchartifact pipeline="Test" stage="Test" job="acceptance" srcdir="app">
+                <runif status="passed" />
+              </fetchartifact>
+              <exec command="ls" workingdir="app">
+                <runif status="passed" />
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+  <environments>
+    <environment name="LeaderBoard">
+      <environmentvariables>
+        <variable name="PATH">
+          <value>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin</value>
+        </variable>
+      </environmentvariables>
+      <agents>
+        <physical uuid="2d8c3f84-3fe9-44e0-b12c-86f887b0d7b8" />
+      </agents>
+      <pipelines>
+        <pipeline name="Build" />
+        <pipeline name="Deploy" />
+        <pipeline name="Test" />
+      </pipelines>
+    </environment>
+  </environments>
+  <agents>
+    <agent hostname="CNtwer-10.local" ipaddress="10.29.2.26" uuid="2d8c3f84-3fe9-44e0-b12c-86f887b0d7b8" />
+  </agents>
+</cruise>
+
