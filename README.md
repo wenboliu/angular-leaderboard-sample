@@ -17,3 +17,6 @@
 * Markup Validation: http://validator.w3.org/#validate_by_input
 * JavaScript Validation: http://www.jslint.com/
 * CSS Validation: http://csslint.net/
+
+## CI References 
+* Heroku buildpack for grunt: https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt
