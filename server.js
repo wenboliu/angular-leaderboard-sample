@@ -3,12 +3,13 @@ var http = require('http');
 var fs = require('fs');
 
 var app = connect();
+
 app.use('/', connect.static("."));
 app.use(function (request, response, next) {
     if ('/api' != request.url) return next();
     http.get('http://material-code.appspot.com/test/api', function (res) {
         res.on("data", function (chunk) {
-            if(chunk.toString().indexOf("Cannot GET") != 0) {
+            if(chunk.toString().indexOf("first_name") == 0) {
                 response.end(chunk);
                 fs.writeFile('./cache/cache.json', chunk, function (err) {
                     if (err) {
