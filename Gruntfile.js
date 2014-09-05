@@ -47,5 +47,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['less', 'bower', 'karma:ci']);
+  grunt.registerTask('heroku:production', ['less', 'bower', 'karma:ci']);
 
 };
