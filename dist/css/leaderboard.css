@@ -19,13 +19,11 @@ body {
   overflow: hidden !important;
   min-width: 320px;
   background: #721d93;
-  background-image: url("../img/mesh-for-web.png");
-  background-image: url("../img/mesh-for-web.png"), -webkit-gradient(linear, left top, left bottom, color-stop(0, #721d93), color-stop(1, #17a7f4));
-  background-image: url("../img/mesh-for-web.png"), -o-linear-gradient(bottom, #721d93 0%, #17a7f4 100%);
-  background-image: url("../img/mesh-for-web.png"), -moz-linear-gradient(bottom, #721d93 0%, #17a7f4 100%);
-  background-image: url("../img/mesh-for-web.png"), -webkit-linear-gradient(bottom, #721d93 0%, #17a7f4 100%);
-  background-image: url("../img/mesh-for-web.png"), -ms-linear-gradient(bottom, #721d93 0%, #17a7f4 100%);
-  background-image: url("../img/mesh-for-web.png"), linear-gradient(to bottom, #721d93 0%, #17a7f4 100%);
+  background-image: url("../images/mesh-for-web.png");
+  background-image: url("../images/mesh-for-web.png"), -webkit-gradient(linear, left top, left bottom, color-stop(0, #721d93), color-stop(1, #17a7f4));
+  background-image: url("../images/mesh-for-web.png"), -webkit-linear-gradient(bottom, #721d93 0%, #17a7f4 100%);
+  background-image: url("../images/mesh-for-web.png"), -webkit-linear-gradient(top, #721d93 0%, #17a7f4 100%);
+  background-image: url("../images/mesh-for-web.png"), linear-gradient(to bottom, #721d93 0%, #17a7f4 100%);
   background-repeat: repeat-x;
 }
 #firstRow {
@@ -105,14 +103,9 @@ body {
 }
 .show-list-change {
   -webkit-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
-  -moz-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
-  -ms-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
-  -o-transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
   transition: 400ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
   -webkit-transform: rotateX(360deg);
-  -moz-transform: rotateX(360deg);
   -ms-transform: rotateX(360deg);
-  -o-transform: rotateX(360deg);
   transform: rotateX(360deg);
 }
 .timer,

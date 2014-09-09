@@ -1,3 +1,4 @@
+var $ = require('jquery');
 var angular = require('angular');
 var angularResource = require('angular-resource');
 
