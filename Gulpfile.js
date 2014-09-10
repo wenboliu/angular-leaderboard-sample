@@ -73,7 +73,7 @@ gulp.task('watch', ['lint', 'copy', 'views'], function() {
   ]);
 });
 
-var embedlr = require('gulp-embedlr'),
+/*var embedlr = require('gulp-embedlr'),
     refresh = require('gulp-livereload'),
     lrserver = require('tiny-lr')(),
     express = require('express'),
@@ -112,13 +112,13 @@ gulp.task('dev', function() {
   lrserver.listen(livereloadport);
   // Run the watch task, to keep taps on changes
   gulp.run('watch');
-});
+});*/
 
 gulp.task('views', function() {
   gulp.src('./app/index.html')
   .pipe(gulp.dest('dist/'));
 
   gulp.src('./app/views/**/*')
-  .pipe(gulp.dest('dist/views/'))
-  .pipe(refresh(lrserver)); // Tell the lrserver to refresh
+  .pipe(gulp.dest('dist/views/'));
+  //.pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });

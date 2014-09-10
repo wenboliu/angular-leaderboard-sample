@@ -1,7 +1,7 @@
 var connect = require('connect');
 var http = require('http');
 var app = connect();
-app.use('/', connect.static("."));
+app.use('/', connect.static("dist"));
 app.use(function (request, response, next) {
     if ('/api' != request.url) return next();
     http.get('http://material-code.appspot.com/test/api', function (res) {
