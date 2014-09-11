@@ -46,6 +46,9 @@ gulp.task('copy', function(){
       
   gulp.src(['app/styles/*.css'])
       .pipe(gulp.dest('dist/css'));
+
+  gulp.src(['app/scripts/views/*'])
+      .pipe(gulp.dest('dist/views'));
   
 });
 

@@ -1,6 +1,4 @@
-/*var leaderBoardApp = angular.module("leaderBoardTimerApp", []);
-
-leaderBoardApp.directive('timer', function($interval){
+var timer = function($interval){
 	return {link: function(scope, element, attrs){
 		var cssSelector = attrs['timer'];
 		angular.element("." + cssSelector).show();
@@ -35,10 +33,8 @@ leaderBoardApp.directive('timer', function($interval){
 
 	},
 	       restrict:'A',
-	       templateUrl: "/js/src/timer.html",
-	       scope: true}}).controller('timerCtrl', function(){
-	       });
-angular.element('#secRow').ready(function() {
-	angular.bootstrap('#secRow', ['leaderBoardTimerApp']);
-});*/
+	       templateUrl: "../views/timer.html",
+	       scope: true}};
+
+module.exports = timer;
 
