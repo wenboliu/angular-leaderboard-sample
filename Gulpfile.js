@@ -5,6 +5,13 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     clean = require('gulp-clean');
 
+gulp.task('clean', function() {
+  gulp.src('./dist/**/*')
+  .pipe(clean())
+  // You can look into pretty reporters as well, but that's another story
+  .pipe(jshint.reporter('default'));
+});
+
 // JSHint task
 gulp.task('lint', function() {
   gulp.src('./app/scripts/*.js')
@@ -25,12 +32,6 @@ gulp.task('browserify', function() {
   .pipe(concat('bundle.js'))
   // Output it to our dist folder
   .pipe(gulp.dest('dist/js'));
-  
-  gulp.src(['app/scripts/lib/ie/*'])
-      .pipe(gulp.dest('dist/js/ie'));
-  
-  gulp.src(['app/scripts/lib/responsive/*'])
-      .pipe(gulp.dest('dist/js/responsive'));
 });
 
 gulp.task('copy', function(){
@@ -58,11 +59,15 @@ gulp.task('styles', function() {
   // Optionally add autoprefixer
   .pipe(autoprefixer("last 2 versions", "> 1%", "ie 8"))
   // These last two should look familiar now :)
-  .pipe(gulp.dest('dist/css/'))
-  .pipe(refresh(lrserver));
+  .pipe(gulp.dest('dist/css/'));
+//  .pipe(refresh(lrserver));
 });
 
-gulp.task('watch', ['lint', 'copy', 'views'], function() {
+gulp.task('build', ['lint', 'browserify', 'styles', 'copy', 'views'], function() {
+});
+
+
+gulp.task('watch', ['lint', 'browserify', 'styles', 'copy', 'views'], function() {
   // Watch our scripts
   gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'],[
     'lint',

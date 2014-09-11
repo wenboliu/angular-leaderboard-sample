@@ -1,7 +1,3 @@
-var $ = require('jquery');
-var angular = require('angular');
-var angularResource = require('angular-resource');
-
 var leaderBoardController = function ($scope, $http, $interval) {
 	refresh();
 	$interval(function () {
