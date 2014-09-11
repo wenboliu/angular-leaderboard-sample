@@ -1,5 +1,5 @@
 var leaderBoardStatus = require('./vopopulator/leaderBoardStatus');
-var leaderBoardController = function ($scope, $http, $interval, apiService) {
+var leaderBoardController = function ($scope, $interval, apiService) {
 	refresh();
 	$interval(function () {
 		refresh();
