@@ -15,29 +15,6 @@
     "type": "git",
     "url": "git@heroku.com:leaderboard-angular-sample.git"
   },
-  "browserify-shim": {
-    "jquery": {
-      "exports": "jQuery"
-    },
-    "angular": {
-      "exports": "angular",
-      "depends": [
-        "jquery"
-      ]
-    },
-    "angular-resource": {
-      "exports": "angular-resource",
-      "depends": [
-        "jquery",
-        "angular"
-      ]
-    }
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
   "devDependencies": {
     "browserify": "^5.11.1",
     "browserify-shim": "^3.7.0",

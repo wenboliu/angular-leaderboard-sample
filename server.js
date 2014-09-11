@@ -4,14 +4,15 @@ var app = connect();
 app.use('/', connect.static("dist"));
 app.use(function (request, response, next) {
     if ('/api' != request.url) return next();
-    http.get('http://material-code.appspot.com/test/api', function (res) {
+    response.end('[{"first_name":"fname1","last_name":"lname1","time":"time1"},{"first_name":"fname2","last_name":"lname2","time":"time2"}]')
+   /* http.get('http://material-code.appspot.com/test/api', function (res) {
         res.on("data", function (chunk) {
             response.end(chunk)
         });
     }).on('error', function (e) {
         console.log("Got error: " + e.message);
         response.writeHead(500, '', {'content-type': 'text/plain'});
-    });
+    });*/
 
 });
 
