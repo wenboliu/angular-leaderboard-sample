@@ -1,8 +1,11 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
-    browserify = require('gulp-browserify'),
+    browserify = require('browserify'),
     concat = require('gulp-concat'),
+    inject = require("gulp-inject"),
+    source = require('vinyl-source-stream'),
+    streamify = require('gulp-streamify'),
     clean = require('gulp-clean');
 
 gulp.task('clean', function() {
@@ -109,6 +112,46 @@ gulp.task('watch-test', function() {
     }));
 });
 
+/**
+* Introspect for tests and create test entrypoint js file for Browserify
+*/
+gulp.task('create-tests', function() {
+    return gulp.src('./app/specs/specs.js')
+        .pipe(inject(gulp.src(["./app/specs/controllers/*Spec.js"], {
+            read: false
+        }), {
+            transform: function(filepath) {
+                return "require('.." + filepath + "');"
+            },
+            starttag: "/* inject:js */",
+            endtag: "/* endinject */"
+        }))
+        .pipe(gulp.dest('./build'));
+});
+
+/**
+* Browserify tests
+*/
+gulp.task('browserify-tests', ['create-tests'], function() {
+
+    return browserify('./build/specs.js')
+    .bundle() 
+    .pipe(source('../specs.js'))
+    .pipe(gulp.dest('./build/specs.js'));
+
+});
+
+/**
+* Run tests
+*/
+gulp.task('test', ['browserify-tests'], function() {
+
+    return gulp.src(['./build/specs.js'])
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        }));
+});
 /*var embedlr = require('gulp-embedlr'),
     refresh = require('gulp-livereload'),
     lrserver = require('tiny-lr')(),
