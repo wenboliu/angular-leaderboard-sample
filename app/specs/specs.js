@@ -1,5 +1,6 @@
 'use strict';
 
+require('jquery');
 require('angular');
 require('angular-mocks');
 

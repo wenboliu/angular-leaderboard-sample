@@ -104,14 +104,6 @@ gulp.task('test', function() {
     });
 });
 
-gulp.task('watch-test', function() {
-  gulp.src(testFiles)
-    .pipe(karma({
-      configFile: 'karma.conf.js',
-      action: 'watch'
-    }));
-});
-
 /**
 * Introspect for tests and create test entrypoint js file for Browserify
 */
