@@ -1,6 +1,6 @@
 'use strict';
 
-require('jquery');
+window.jQuery = require('jquery');
 require('angular');
 require('angular-mocks');
 

@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     clean = require('gulp-clean');
 
 gulp.task('clean', function() {
-  gulp.src('./dist/**/*')
+  gulp.src(['./dist/**/*',
+	    './build/**/*'])
   .pipe(clean())
   // You can look into pretty reporters as well, but that's another story
   .pipe(jshint.reporter('default'));
