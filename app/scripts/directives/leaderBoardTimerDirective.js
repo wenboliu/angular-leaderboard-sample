@@ -17,7 +17,7 @@ var timer = function($interval, timerService){
 		},1000,0);  
 	},
 	       restrict:'A',
-	       templateUrl: "../views/timer.html",
+	       templateUrl: "views/timer.tpl.html",
 	       scope: true}};
 
 module.exports = timer;

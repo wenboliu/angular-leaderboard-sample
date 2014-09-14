@@ -3,3 +3,5 @@
 *.swp
 css/leaderboard.css
 node_modules
+dist
+build

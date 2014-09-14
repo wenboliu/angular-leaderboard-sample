@@ -2,11 +2,12 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
     browserify = require('browserify'),
-    gulpBrowserify = require('gulp-browserify'),
     concat = require('gulp-concat'),
     inject = require("gulp-inject"),
     source = require('vinyl-source-stream'),
     streamify = require('gulp-streamify'),
+    ngHtml2Js = require("gulp-ng-html2js"),
+    karma = require('gulp-karma'),
     clean = require('gulp-clean');
 
 gulp.task('clean', function() {
@@ -56,40 +57,6 @@ gulp.task('styles', function() {
 //  .pipe(refresh(lrserver));
 });
 
-gulp.task('build', ['lint', 'browserify', 'styles', 'copy', 'views'], function() {
-});
-
-
-gulp.task('watch', ['lint', 'browserify', 'styles', 'copy', 'views'], function() {
-  // Watch our scripts
-  gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'],[
-    'lint',
-    'browserify'
-  ]);
-  gulp.watch(['app/styles/**/*.less'], [
-    'styles'
-  ]);
-});
-
-
-var karma = require('gulp-karma');
-
-var testFiles = [
-  'app/scripts/**/*.js'
-];
-
-gulp.task('test', function() {
-  // Be sure to return the stream
-  return gulp.src(testFiles)
-    .pipe(karma({
-      configFile: 'karma.conf.js',
-      action: 'run'
-    }))
-    .on('error', function(err) {
-      // Make sure failed tests cause gulp to exit non-zero
-      throw err;
-    });
-});
 
 /**
 * Introspect for tests and create test entrypoint js file for Browserify
@@ -181,18 +148,60 @@ gulp.task('views', function() {
   //.pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });
 
-// Browserify task
+/**
+* Convert the html partials into js file to be required into Browserify
+*/
+gulp.task('templates', function() {
+
+    return gulp.src("./app/scripts/**/*.tpl.html")
+        /*.pipe(minifyHtml({
+            empty: true,
+            spare: true,
+            quotes: true
+        }))*/
+        .pipe(ngHtml2Js({
+            stripPrefix: "app/"
+        }))
+        .pipe(concat("templates.js"))
+        //.pipe(uglify())
+        .pipe(gulp.dest("./dist/js")); // Always store the compiled templates in build folder as need single location for require statement. Don't want to put into src folder.
+
+});
+
+/**
+* Convert the html partials into js file to be required into Browserify
+*/
 gulp.task('browserify', function() {
+
+     // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
+   return browserify('./app/scripts/main.js')
+    .bundle() 
+    .pipe(source('../bundle.js'))
+    .pipe(gulp.dest('./dist/js/bundle.js'));
+});
+
+// Browserify task
+gulp.task('js', ['browserify', 'templates'], function() {
   // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
-  gulp.src(['app/scripts/main.js'])
-  .pipe(gulpBrowserify({
-    insertGlobals: true,
-    debug: true
-  }))
+  gulp.src(['dist/js/bundle.js',
+	    'dist/js/templates.js'])
   // Bundle to a single file
   .pipe(concat('bundle.js'))
   // Output it to our dist folder
   .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('build', ['lint', 'js', 'styles', 'copy', 'views'], function() {
+});
 
+
+gulp.task('watch', ['lint', 'js', 'styles', 'copy', 'views'], function() {
+  // Watch our scripts
+  gulp.watch(['app/scripts/*.js', 'app/scripts/**/*.js'],[
+    'lint',
+    'browserify'
+  ]);
+  gulp.watch(['app/styles/**/*.less'], [
+    'styles'
+  ]);
+});
