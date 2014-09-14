@@ -88,6 +88,39 @@ gulp.task('browserify-tests', ['create-tests'], function() {
 });
 
 /**
+* Convert the html partials into js file to be required into Browserify
+*/
+gulp.task('test-templates', function() {
+
+    return gulp.src("./app/scripts/**/*.tpl.html")
+        /*.pipe(minifyHtml({
+            empty: true,
+            spare: true,
+            quotes: true
+        }))*/
+        .pipe(ngHtml2Js({
+            stripPrefix: "app/"
+        }))
+        .pipe(concat("templates.js"))
+        //.pipe(uglify())
+        .pipe(gulp.dest("./build")); // Always store the compiled templates in build folder as need single location for require statement. Don't want to put into src folder.
+
+});
+
+/**
+* Browserify tests
+*/
+gulp.task('browserify-tests', ['create-tests', 'test-templates'], function() {
+
+    return browserify(['./build/specs.js',
+	               './build/templates.js'])
+    .bundle() 
+    .pipe(source('../specs.js'))
+    .pipe(gulp.dest('./build/specs.js'));
+
+});
+
+/**
 * Run tests
 */
 gulp.task('test', ['browserify-tests'], function() {
