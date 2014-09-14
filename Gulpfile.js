@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     gutil = require('gulp-util'),
     jshint = require('gulp-jshint'),
     browserify = require('browserify'),
+    gulpBrowserify = require('gulp-browserify'),
     concat = require('gulp-concat'),
     inject = require("gulp-inject"),
     source = require('vinyl-source-stream'),
@@ -21,20 +22,6 @@ gulp.task('lint', function() {
   .pipe(jshint())
   // You can look into pretty reporters as well, but that's another story
   .pipe(jshint.reporter('default'));
-});
-
-// Browserify task
-gulp.task('browserify', function() {
-  // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
-  gulp.src(['app/scripts/main.js'])
-  .pipe(browserify({
-    insertGlobals: true,
-    debug: true
-  }))
-  // Bundle to a single file
-  .pipe(concat('bundle.js'))
-  // Output it to our dist folder
-  .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('copy', function(){
@@ -193,3 +180,19 @@ gulp.task('views', function() {
   .pipe(gulp.dest('dist/views/'));
   //.pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });
+
+// Browserify task
+gulp.task('browserify', function() {
+  // Single point of entry (make sure not to src ALL your files, browserify will figure it out for you)
+  gulp.src(['app/scripts/main.js'])
+  .pipe(gulpBrowserify({
+    insertGlobals: true,
+    debug: true
+  }))
+  // Bundle to a single file
+  .pipe(concat('bundle.js'))
+  // Output it to our dist folder
+  .pipe(gulp.dest('dist/js'));
+});
+
+
