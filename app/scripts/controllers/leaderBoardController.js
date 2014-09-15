@@ -6,7 +6,6 @@ var leaderBoardController = function ($scope, $interval, apiService) {
 	}, 10000);
 	function refresh() {
 		angular.element('#items').show();
-		console.log(angular.element('#items'));
 
 		leaderBoardStatus($scope, 'hidden');
 		leaderBoardStatus($scope, 'table-responsive', true);

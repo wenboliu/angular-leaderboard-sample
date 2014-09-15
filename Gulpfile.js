@@ -77,18 +77,6 @@ gulp.task('create-tests', function() {
 });
 
 /**
-* Browserify tests
-*/
-gulp.task('browserify-tests', ['create-tests'], function() {
-
-    return browserify('./build/specs.js')
-    .bundle() 
-    .pipe(source('../specs.js'))
-    .pipe(gulp.dest('./build/specs.js'));
-
-});
-
-/**
 * Convert the html partials into js file to be required into Browserify
 */
 gulp.task('test-templates', function() {
@@ -108,10 +96,15 @@ gulp.task('test-templates', function() {
 
 });
 
+gulp.task('copy-test-utils', function(){
+  return gulp.src('./app/specs/utils/*.js')
+  .pipe(gulp.dest('build/utils'));
+});
+
 /**
 * Browserify tests
 */
-gulp.task('browserify-tests', ['create-tests', 'test-templates'], function() {
+gulp.task('browserify-tests', ['create-tests', 'test-templates', 'copy-test-utils'], function() {
 
     return browserify(['./build/specs.js',
 	               './build/templates.js'])
@@ -130,6 +123,7 @@ gulp.task('test', ['browserify-tests'], function() {
         .pipe(karma({
             configFile: 'karma.conf.js',
             action: 'run'
+            //action: 'watch'
         }));
 });
 /*var embedlr = require('gulp-embedlr'),
@@ -177,8 +171,8 @@ gulp.task('views', function() {
   gulp.src('./app/index.html')
   .pipe(gulp.dest('dist/'));
 
-  gulp.src('./app/views/**/*')
-  .pipe(gulp.dest('dist/views/'));
+  //gulp.src('./app/views/**/*')
+  //.pipe(gulp.dest('dist/views/'));
   //.pipe(refresh(lrserver)); // Tell the lrserver to refresh
 });
 

@@ -3,6 +3,7 @@
 window.jQuery = require('jquery');
 require('angular');
 require('angular-mocks');
+window.fixturesUtils = require('./utils/fixturesUtils');
 
 /* Introspected tests */
 
