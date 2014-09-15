@@ -3,11 +3,10 @@
   Angular.js
   Bootstrap
   Npm
-  Grunt
-  Bower
+  gulp
+  browserify
   Less
-  Requirejs
   Karma
   Jasmine
-
+  Chai
   Connect
